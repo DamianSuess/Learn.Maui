@@ -1,24 +1,23 @@
-﻿using System;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+﻿namespace Learn.HelloMaui;
 
-namespace Learn.HelloMaui
+public partial class MainPage : ContentPage
 {
-  public partial class MainPage : ContentPage
+  private int _count = 0;
+
+  public MainPage()
   {
-    int _count = 0;
+    InitializeComponent();
+  }
 
-    public MainPage()
-    {
-      InitializeComponent();
-    }
+  private void OnCounterClicked(object sender, EventArgs e)
+  {
+    _count++;
 
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-      _count++;
-      CounterLabel.Text = $"Current count: {_count}";
+    if (_count == 1)
+      CounterBtn.Text = $"Clicked {_count} time";
+    else
+      CounterBtn.Text = $"Clicked {_count} times";
 
-      SemanticScreenReader.Announce(CounterLabel.Text);
-    }
+    SemanticScreenReader.Announce(CounterBtn.Text);
   }
 }
