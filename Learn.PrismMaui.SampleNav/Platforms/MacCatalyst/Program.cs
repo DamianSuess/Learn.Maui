@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Test.PrismMaui;
+namespace Learn.PrismMaui.SampleNav;
 
 public class Program
 {

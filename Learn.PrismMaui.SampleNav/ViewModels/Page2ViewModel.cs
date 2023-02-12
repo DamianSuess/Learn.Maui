@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Test.PrismMaui.Views;
+using Learn.PrismMaui.SampleNav.Views;
 
-namespace Test.PrismMaui.ViewModels
+namespace Learn.PrismMaui.SampleNav.ViewModels
 {
   public class Page2ViewModel : BindableBase
   {

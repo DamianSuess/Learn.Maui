@@ -1,6 +1,8 @@
 # Learn .NET MAUI
 
-This repo provides simple sample for .NET MAUI specific features. For usage with the Prism Library with MAUI, check out the [Learn.Prism](https://github.com/DamianSuess/Learn.PrismLibrary) repo.
+This repo provides simple sample for .NET MAUI specific features.
+
+For usage with the Prism Library with MAUI, check out the [Learn.Prism](https://github.com/DamianSuess/Learn.PrismLibrary) repo.
 
 ## Repos
 

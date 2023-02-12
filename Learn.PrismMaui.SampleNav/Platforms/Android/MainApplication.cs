@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Test.PrismMaui;
+namespace Learn.PrismMaui.SampleNav;
 
 [Application]
 public class MainApplication : MauiApplication

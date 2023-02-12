@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Test.PrismMaui;
+namespace Learn.PrismMaui.SampleNav;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate
