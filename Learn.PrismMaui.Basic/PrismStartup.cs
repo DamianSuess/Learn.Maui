@@ -1,13 +1,13 @@
-﻿using Test.PrismMaui.Views;
+﻿using Learn.PrismMaui.Basic.Views;
 
-namespace Test.PrismMaui
+namespace Learn.PrismMaui.Basic
 {
   internal static class PrismStartup
   {
     public static void Configure(PrismAppBuilder builder)
     {
       builder.RegisterTypes(RegisterTypes)
-             .OnAppStart("NavigationPage/MainPage");
+             .OnAppStart($"{nameof(NavigationPage)}/{nameof(MainPage)}");
     }
 
     private static void RegisterTypes(IContainerRegistry containerRegistry)

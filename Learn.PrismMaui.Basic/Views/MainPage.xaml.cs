@@ -1,4 +1,4 @@
-﻿namespace Test.PrismMaui.Views;
+﻿namespace Learn.PrismMaui.Basic.Views;
 
 public partial class MainPage : ContentPage
 {

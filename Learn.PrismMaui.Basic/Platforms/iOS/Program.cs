@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Test.PrismMaui;
+namespace Learn.PrismMaui.Basic;
 
 public class Program
 {

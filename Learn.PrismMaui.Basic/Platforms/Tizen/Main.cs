@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
-namespace Test.PrismMaui;
+namespace Learn.PrismMaui.Basic;
 
 class Program : MauiApplication
 {

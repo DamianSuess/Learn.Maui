@@ -1,4 +1,4 @@
-﻿namespace Test.PrismMaui;
+﻿namespace Learn.PrismMaui.Basic;
 
 public partial class App : Application
 {

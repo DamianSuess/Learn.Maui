@@ -1,4 +1,4 @@
-﻿namespace Test.PrismMaui.ViewModels
+﻿namespace Learn.PrismMaui.Basic.ViewModels
 {
   public class MainPageViewModel : BindableBase
   {

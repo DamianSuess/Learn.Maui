@@ -1,5 +1,5 @@
 ﻿using Prism;
-namespace Test.PrismMaui;
+namespace Learn.PrismMaui.Basic;
 
 public static class MauiProgram
 {
