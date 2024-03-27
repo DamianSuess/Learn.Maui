@@ -12,7 +12,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>10.0</LangVersion>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 
 		<!-- Display name -->
 		<ApplicationTitle>PrismMaui Basic Nav</ApplicationTitle>
@@ -52,14 +52,26 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.Maui.Controls" />
-      <PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
-      <PackageReference Include="Prism.Core" />
-      <PackageReference Include="Prism.Maui" />
-      <PackageReference Include="Prism.DryIoc.Maui" />
-      <PackageReference Include="Prism.Events" />
-    </ItemGroup>
+  <!-- USE THIS WHEN "ManagePackageVersionsCentrally" is set to TRUE.-->
+  <!--
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
+    <PackageReference Include="Prism.Core" />
+    <PackageReference Include="Prism.Maui" />
+    <PackageReference Include="Prism.DryIoc.Maui" />
+    <PackageReference Include="Prism.Events" />
+  </ItemGroup>
+  -->
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
+    <PackageReference Include="Prism.Core" Version="9.0.401-pre" />
+    <PackageReference Include="Prism.Maui" Version="9.0.401-pre" />
+    <PackageReference Include="Prism.DryIoc.Maui" Version="9.0.401-pre" />
+    <PackageReference Include="Prism.Events" Version="9.0.401-pre" />
+  </ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Page2View.xaml">
