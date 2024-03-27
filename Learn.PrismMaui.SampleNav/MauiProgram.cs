@@ -9,7 +9,13 @@ public static class MauiProgram
   {
     var builder = MauiApp.CreateBuilder()
       .UseMauiApp<App>()
-      .UsePrism(ConfigurePrism)
+      .UsePrism(prism =>
+      {
+        // You may also do this in-line via lambdas without the need of static methods.
+        prism.ConfigureModuleCatalog(OnConfigureModuleCatalog);
+        prism.RegisterTypes(OnRegisterTypes);
+        prism.CreateWindow($"{nameof(NavigationPage)}/{nameof(MainPage)}");
+      })
       .ConfigureFonts(fonts =>
       {
         fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -19,20 +25,11 @@ public static class MauiProgram
     return builder.Build();
   }
 
-  public static void ConfigurePrism(PrismAppBuilder builder)
-  {
-    // You may also do this in-line via lambdas without the need of static methods.
-    builder
-      .ConfigureModuleCatalog(OnConfigureModuleCatalog)
-      .RegisterTypes(OnRegisterTypes)
-      .OnAppStart($"{nameof(NavigationPage)}/{nameof(MainPage)}");
-  }
-
   private static void OnConfigureModuleCatalog(IModuleCatalog moduleCatalog)
   {
     // Add custom Module to catalog
-    //  moduleCatalog.AddModule<MauiAppModule>();
-    //  moduleCatalog.AddModule<MauiTestRegionsModule>();
+    ////  moduleCatalog.AddModule<MauiAppModule>();
+    ////  moduleCatalog.AddModule<MauiTestRegionsModule>();
   }
 
   private static void OnRegisterTypes(IContainerRegistry containerRegistry)
