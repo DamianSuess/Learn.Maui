@@ -12,7 +12,9 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>10.0</LangVersion>
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+
+    <!-- Disabling (false) fixes the Missing AndroidManifest.xml issue -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 
 		<!-- Display name -->
 		<ApplicationTitle>PrismMaui Basic Nav</ApplicationTitle>
@@ -53,7 +55,6 @@
 	</ItemGroup>
 
   <!-- USE THIS WHEN "ManagePackageVersionsCentrally" is set to TRUE.-->
-  <!--
   <ItemGroup>
     <PackageReference Include="Microsoft.Maui.Controls" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
@@ -62,8 +63,9 @@
     <PackageReference Include="Prism.DryIoc.Maui" />
     <PackageReference Include="Prism.Events" />
   </ItemGroup>
-  -->
 
+  <!-- USE THIS WHEN "ManagePackageVersionsCentrally" is set to FALSE.-->
+  <!--
   <ItemGroup>
     <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
@@ -72,6 +74,7 @@
     <PackageReference Include="Prism.DryIoc.Maui" Version="9.0.401-pre" />
     <PackageReference Include="Prism.Events" Version="9.0.401-pre" />
   </ItemGroup>
+  -->
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Page2View.xaml">
