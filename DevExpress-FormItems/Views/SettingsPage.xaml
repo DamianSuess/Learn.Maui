@@ -1,0 +1,84 @@
+<ContentPage
+    x:Class="FormItemExample.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:helpers="clr-namespace:FormItemExample.Helpers"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:local="clr-namespace:FormItemExample">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior x:Name="statusBarBehavior" StatusBarColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource surfaceDark}}" StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <ContentPage.BindingContext>
+        <local:SettingsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="dx:FormItemBase" ApplyToDerivedTypes="True" x:Key="baseStyle">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}"/>
+            <Setter Property="ImageColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}" />
+            <Setter Property="Padding" Value="0,8" />
+            <Setter Property="ShowSeparator" Value="False" />
+            <Setter Property="ImageWidth" Value="36" />
+            <Setter Property="ImageMargin" Value="0,0,10,0" />
+            <Setter Property="ImageHeight" Value="36" />
+            <Setter Property="Margin" Value="-1,0,-1,0" />           
+        </Style>
+        <Style TargetType="dx:FormItem" BasedOn="{StaticResource baseStyle}">
+            <Setter Property="Margin" Value="0,0,0,0" />
+        </Style>
+        <Style TargetType="dx:FormSwitchItem" BasedOn="{StaticResource baseStyle}">
+        </Style>
+        <Style TargetType="dx:FormListPickerItem" BasedOn="{StaticResource baseStyle}">
+            <Setter Property="PickerTitleColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray200}}"/>
+            <Setter Property="PickerBackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"/>
+            <Setter Property="ArrowColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}"/>
+        </Style>
+        <Style TargetType="dx:FormGroupItem">
+            <Setter Property="HeaderColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}"/>
+            <Setter Property="HeaderFontAttributes" Value="Bold" />
+            <Setter Property="HeaderMargin" Value="0,0,0,5" />
+            <Setter Property="Padding" Value="0,25,0,15" />
+            <Setter Property="HeaderFontSize" Value="15" />
+            <Setter Property="ItemSpacing" Value="0" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <dx:DXStackLayout Orientation="Vertical" Padding="20,0" ItemSpacing="10">
+            <dx:FormGroupItem>
+                <dx:FormItem  Detail="support@devexpress.com" DetailFontFamily="Roboto" DetailFontSize="14" ImageVerticalOptions="Center"
+                               Padding="0,10" Text="Jennie Valintine" TextFontFamily="Roboto" TextFontSize="18">
+                    <dx:FormItem.ImageTemplate>
+                        <DataTemplate>
+                            <dx:DXImage Margin="0,0,10,0" Aspect="AspectFit" HeightRequest="60" Source="jennievalintine" WidthRequest="60">
+                                <dx:DXImage.Clip>
+                                    <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                                </dx:DXImage.Clip>
+                            </dx:DXImage>
+                        </DataTemplate>
+                    </dx:FormItem.ImageTemplate>
+                </dx:FormItem>
+                <dx:FormItem AllowTap="True" Detail="{Binding Bio, Converter={helpers:BioDetailsConverter}, Mode=OneWay}" DetailColor="Gray"
+                    TapCommand="{Binding EditBioCommand}" Text="{Binding Bio, Converter={helpers:BioTextConverter}, Mode=OneWay}" />
+            </dx:FormGroupItem>
+            <dx:FormGroupItem Header="Language">
+                <dx:FormListPickerItem ImageSource="globe" InlineContent="{x:Null}" ItemsSource="{Binding Languages}" PickerTitle="Select Language"
+                    SelectedItem="{Binding Language, Mode=TwoWay}" Text="{Binding Language}" />
+            </dx:FormGroupItem>
+            <dx:FormGroupItem Header="Chat Notifications">
+                <dx:FormSwitchItem ImageSource="priv" IsToggled="{Binding IsPrivateChatEnabled}" Text="Private Chat"/>
+                <dx:FormSwitchItem ImageSource="group" IsToggled="{Binding IsGroupChatEnabled}" Text="Group Chat" />
+            </dx:FormGroupItem>
+            <dx:FormGroupItem Header="Calls" ShowSeparator="false">
+                <dx:FormSwitchItem ImageSource="sound" IsToggled="{Binding IsSoundEnabled}" Text="Sounds"/>
+                <dx:FormListPickerItem ImageSource="vibrate" ItemsSource="{Binding VibrationModes}" PickerShowMode="Popup" 
+                    PickerBackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource Gray950}}" SelectedItem="{Binding VibrationMode}"
+                    ShowSearchPanel="False" Text="Vibrate" />
+                <dx:FormListPickerItem ImageSource="blacklist" ImageVerticalOptions="Start" ArrowVerticalOptions="Start" ImageMargin="0,-6,10,0"
+                    IsMultipleSelectionEnabled="True" ItemsSource="{Binding Contacts}" SelectedItems="{Binding Blacklist}" PickerTitle="Blacklist"
+                    Text="Blacklist" PickerPageButtonPosition="Title"
+                    Content="{Binding Blacklist, Converter={helpers:BlacklistCollectionConverter}, Mode=TwoWay}">
+                </dx:FormListPickerItem>
+            </dx:FormGroupItem>
+        </dx:DXStackLayout>
+    </ScrollView>
+</ContentPage>
